@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "L’Archivio delle Maree",
+  "short_name": "Le Maree",
+  "description": "La storia di Nora, due capitoli di enigmi e oggetti nascosti in italiano.",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#080d10",
+  "theme_color": "#112b35",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
