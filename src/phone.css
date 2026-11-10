@@ -1,0 +1,34 @@
+:root{--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px);--safe-right:env(safe-area-inset-right,0px)}
+html,body{width:100%;height:100%;overscroll-behavior:none;background:#080d10;-webkit-text-size-adjust:100%}
+body{overflow:hidden}#experience{height:100svh;height:100dvh;min-height:0}
+.topbar{top:calc(25px + var(--safe-top));left:max(4%,var(--safe-left));right:max(4%,var(--safe-right))}
+.opening-footer{bottom:calc(25px + var(--safe-bottom))}
+.utility-bar{bottom:calc(27px + var(--safe-bottom))}.bottom-bar{bottom:calc(23px + var(--safe-bottom))}.objective{bottom:calc(103px + var(--safe-bottom))}
+#modal-layer{padding-top:calc(16px + var(--safe-top));padding-bottom:calc(16px + var(--safe-bottom))}
+.inspection-panel{max-height:calc(100dvh - 32px - var(--safe-top) - var(--safe-bottom));overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.search-heading{padding-top:calc(16px + var(--safe-top));padding-left:max(4%,var(--safe-left));padding-right:max(4%,var(--safe-right))}
+.search-footer{padding-bottom:calc(15px + var(--safe-bottom))}
+.search-viewport{-webkit-overflow-scrolling:touch}
+.phone-guide{border-top:1px solid var(--line);padding-top:18px;margin-top:24px;color:var(--muted);font-size:12px}
+.phone-guide strong{color:var(--ink)}.phone-guide p{margin-bottom:10px}.offline-status{color:#b8c9c0;font-size:11px}
+@media (pointer:coarse){button{touch-action:manipulation}.icon-button,.search-tools button,.search-back,.close-button,.inventory-item,.dial button,.prism-dial,.orbit-controls button,.pour-controls button,.item-viewer-controls button{min-width:44px;min-height:44px}.hidden-object{min-width:44px;min-height:44px}.search-back{justify-content:center}.settings select,.settings input{font-size:16px}.inventory-item b{display:none}}
+@media(max-width:700px){
+  .topbar{top:calc(14px + var(--safe-top));left:max(5%,var(--safe-left));right:max(5%,var(--safe-right))}
+  .top-actions{gap:5px}.brand{font-size:14px}.brand svg{width:27px}.icon-button{width:44px;height:44px}
+  .location-caption{top:calc(78px + var(--safe-top))}
+  .title-screen{top:calc(46% + var(--safe-top)/2);transform:translateY(-43%)}
+  .opening-footer{bottom:calc(18px + var(--safe-bottom))}
+  .utility-bar{left:max(3%,var(--safe-left));right:max(3%,var(--safe-right));bottom:calc(12px + var(--safe-bottom));gap:0}
+  .utility{min-width:44px;min-height:52px;padding:4px 3px;gap:6px}.utility span{font-size:9px}.utility:first-child span{max-width:50px;line-height:1.2}
+  .bottom-bar{bottom:calc(92px + var(--safe-bottom));left:5%;right:5%;gap:8px}
+  .inventory-block{min-width:0;flex:1}#inventory{min-width:0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:4px 1px;max-width:100%}.inventory-item{flex:0 0 44px;width:44px;height:48px}.empty-inventory{font-size:15px}.overview-button{flex-shrink:0;min-width:44px;min-height:44px}
+  .objective{bottom:calc(174px + var(--safe-bottom));left:5%;right:5%}.objective p{font-size:17px;line-height:1.25}
+  .room-travel{bottom:calc(262px + var(--safe-bottom));min-height:48px;right:var(--safe-right)}
+  .drag-tip{bottom:calc(238px + var(--safe-bottom))}.toast{bottom:calc(244px + var(--safe-bottom))}
+  #selected-tool{bottom:calc(178px + var(--safe-bottom))}
+  #modal-layer{padding:calc(10px + var(--safe-top)) max(10px,var(--safe-right)) calc(10px + var(--safe-bottom)) max(10px,var(--safe-left))}
+  .inspection-panel{max-height:calc(100dvh - 20px - var(--safe-top) - var(--safe-bottom));padding:39px 22px 25px}
+  .search-heading{padding:calc(8px + var(--safe-top)) 12px 8px;gap:7px}.search-heading h2{font-size:22px}.search-tools{gap:4px}.search-tools button{width:44px;height:44px;font-size:24px}
+  .search-footer{padding:12px 17px calc(12px + var(--safe-bottom))}.search-checklist{gap:6px 12px}.search-checklist>span{font-size:17px}.nora-observation{font-size:16px;max-width:75%;margin-bottom:8px}.search-result p{font-size:17px}.search-instruction{font-size:9px}
+}
+@media(max-width:700px) and (max-height:740px){.title-screen h1{font-size:56px;margin-bottom:18px}.title-quote{font-size:18px;margin-bottom:18px}.place-date{margin-bottom:15px}.chapter-intro{margin-bottom:15px}.chapter-intro h2{font-size:23px}.start-meta{font-size:8px}.title-screen{top:calc(44% + var(--safe-top)/2)}.objective p{font-size:15px}.nora-observation{font-size:15px}.search-checklist>span{font-size:16px}.search-footer{padding-top:9px}.search-instruction{margin-top:5px}.search-result{gap:6px;margin-top:7px;padding-top:7px}}
