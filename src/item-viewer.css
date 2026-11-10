@@ -3,12 +3,12 @@
 .maree-item-viewer canvas{display:block;width:100%;height:100%;max-width:100%;touch-action:none;cursor:grab;outline-offset:-5px}
 .maree-item-viewer canvas.is-dragging{cursor:grabbing;touch-action:none}
 .maree-item-viewer canvas:focus-visible{outline:2px solid #c1e3d4}
-.maree-item-viewer .item-viewer-guide{font:11px/1.5 Manrope,sans-serif;color:#b8c5ba;text-align:center;margin:0;padding:0 17px 11px}
+.maree-item-viewer .item-viewer-guide{font:11px/1.5 'Source Sans 3',sans-serif;color:#b8c5ba;text-align:center;margin:0;padding:0 17px 11px}
 .maree-item-viewer .item-viewer-controls{display:flex;justify-content:center;align-items:center;gap:7px;padding:0 12px 15px}
-.maree-item-viewer .item-viewer-controls button{display:block;margin:0;width:auto;min-width:39px;min-height:39px;padding:6px 11px;color:#dec99a;border:1px solid #bda26e55;background:#17282b;font:20px/1 Manrope,sans-serif;cursor:pointer}
+.maree-item-viewer .item-viewer-controls button{display:block;margin:0;width:auto;min-width:39px;min-height:39px;padding:6px 11px;color:#dec99a;border:1px solid #bda26e55;background:#17282b;font:20px/1 'Source Sans 3',sans-serif;cursor:pointer}
 .maree-item-viewer .item-viewer-controls button:last-child{font-size:10px;line-height:1.4;max-width:98px}
 .maree-item-viewer .item-viewer-controls button:hover{background:#30433e}
 .maree-item-viewer .item-viewer-controls button:focus-visible{outline:2px solid #c1e3d4;outline-offset:3px}
 .maree-item-viewer .item-viewer-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.maree-item-viewer .item-viewer-fallback{position:absolute;inset:0;display:grid;align-content:center;text-align:center;padding:30px;font:18px/1.6 'Cormorant Garamond',Georgia,serif;color:#d6cba9}
+.maree-item-viewer .item-viewer-fallback{position:absolute;inset:0;display:grid;align-content:center;text-align:center;padding:30px;font:18px/1.6 'Marcellus',Georgia,serif;color:#d6cba9}
 @media(max-width:700px){.maree-item-viewer .item-viewer-stage{height:260px}.maree-item-viewer .item-viewer-controls{gap:6px;padding:0 10px 13px}.maree-item-viewer .item-viewer-controls button{min-width:38px;min-height:42px;padding:7px 10px}.maree-item-viewer .item-viewer-controls button:last-child{max-width:86px}.maree-item-viewer .item-viewer-guide{font-size:10px;padding:0 13px 12px}}

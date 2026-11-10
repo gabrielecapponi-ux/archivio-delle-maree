@@ -1,0 +1,60 @@
+{
+  "model": "gpt_image_2_6",
+  "provider": "Higgsfield",
+  "authorizedCredits": 17,
+  "estimatedCredits": 17,
+  "sizeRequested": "2160x3840",
+  "resolution": "4k",
+  "quality": "high",
+  "upscaled": false,
+  "images": [
+    {
+      "name": "observatory",
+      "prompt": "Original premium mystery adventure game environment, an uninhabited Italian island in 1912. Native 2160x3840 pixels, 9:16 portrait, highly detailed realistic prerendered game art. A coherent palette of midnight petrol, aged brass, walnut, ivory and restrained amber light. Physically credible architecture, crisp materials, readable silhouettes, cinematic layered depth. Eye-level camera slightly looking down, 28mm lens. Keep top 12% and bottom 12% visually quiet for interface; all important objects between 28% and 78% height. No people, UI, labels, writing or logos. A breathtaking tall astronomical observatory beneath a copper dome. Ocean and distant lighthouse visible through an arched back window. Mid-left a small ornate brass combination safe on a cabinet. Mid-right a sculptural armillary sphere. Further right a brass optical lantern projector. Broad walnut desk fills foreground from 62% to 82% height, with a cream letter, empty leather blotter and clear areas for small collectible objects. Warm desk lamp contrasts cool moonlight. Fine engraved brass, weathered glass, restrained volumetric light.",
+      "jobId": "8444bfb1-b4eb-48fe-a911-cef48af48de7",
+      "source": "src/assets/4k/observatory.png",
+      "runtime": "src/assets/4k/observatory.webp",
+      "width": 2160,
+      "height": 3840,
+      "sourceSha256": "b92f3f06841bcf95d00511419b237f2242c6b62234926d59233b7a006aeed379",
+      "encoding": "WebP quality 93; identical pixel dimensions, no resizing",
+      "runtimeBytes": 2178462
+    },
+    {
+      "name": "workshop",
+      "prompt": "Original premium mystery adventure game environment, an uninhabited Italian island in 1912. Native 2160x3840 pixels, 9:16 portrait, highly detailed realistic prerendered game art. A coherent palette of midnight petrol, aged brass, walnut, ivory and restrained amber light. Physically credible architecture, crisp materials, readable silhouettes, cinematic layered depth. Eye-level camera slightly looking down, 28mm lens. Keep top 12% and bottom 12% visually quiet for interface; all important objects between 28% and 78% height. No people, UI, labels, writing or logos. A soaring astronomer's workshop inside the lighthouse. Tall window and telescope high in the center. Left wall a mechanical regulator with two exposed bronze gear wheels. Right wall a delicate tidal gauge with glass tubes, next to an arched door. A broad walnut workbench extends across the full foreground between 62% and 82% height, aged open journal on the right, an empty leather tool mat in the center and clear spaces for collectible components. Warm practical lamps, blue hour outside, meticulously machined instruments and worn wood.",
+      "jobId": "5736a580-3f4f-4dce-90ce-53fd16c0e2a3",
+      "source": "src/assets/4k/workshop.png",
+      "runtime": "src/assets/4k/workshop.webp",
+      "width": 2160,
+      "height": 3840,
+      "sourceSha256": "c363185b03e2a803fb1befa844a0e17e1be183012d0b29605985e26959e74ee3",
+      "encoding": "WebP quality 93; identical pixel dimensions, no resizing",
+      "runtimeBytes": 2135340
+    },
+    {
+      "name": "archive",
+      "prompt": "Original premium mystery adventure game environment, an uninhabited Italian island in 1912. Native 2160x3840 pixels, 9:16 portrait, highly detailed realistic prerendered game art. A coherent palette of midnight petrol, aged brass, walnut, ivory and restrained amber light. Physically credible architecture, crisp materials, readable silhouettes, cinematic layered depth. Eye-level camera slightly looking down, 28mm lens. Keep top 12% and bottom 12% visually quiet for interface; all important objects between 28% and 78% height. No people, UI, labels, writing or logos. An awe-inspiring partially flooded archive inside a coastal stone cavern. Tall shelves of sealed glass memory vessels disappear into depth. Still shallow turquoise water reflects the vaults; the player's dry stone walkway is above water. Mid-left a brass pump with three graduated glass tanks. Mid-right a resonating instrument of five bronze bells. Right lower wall an intricate copper conduit panel. Broad dry stone reading desk across foreground from 64% to 82% height holds an open ivory registry and spare clear areas for collectibles. Pale underwater caustics and warm lanterns.",
+      "jobId": "0599a6df-a85a-4040-bfcd-329d85c8c3fb",
+      "source": "src/assets/4k/archive.png",
+      "runtime": "src/assets/4k/archive.webp",
+      "width": 2160,
+      "height": 3840,
+      "sourceSha256": "c5ad8c324be89e641ee95c33df9cbbcf6d8ea0ee01ad927d4c21edece2e87ddf",
+      "encoding": "WebP quality 93; identical pixel dimensions, no resizing",
+      "runtimeBytes": 2720096
+    },
+    {
+      "name": "vault",
+      "prompt": "Original premium mystery adventure game environment, an uninhabited Italian island in 1912. Native 2160x3840 pixels, 9:16 portrait, highly detailed realistic prerendered game art. A coherent palette of midnight petrol, aged brass, walnut, ivory and restrained amber light. Physically credible architecture, crisp materials, readable silhouettes, cinematic layered depth. Eye-level camera slightly looking down, 28mm lens. Keep top 12% and bottom 12% visually quiet for interface; all important objects between 28% and 78% height. No people, UI, labels, writing or logos. A monumental submerged memory vault with dry accessible floor. At center a luminous glass sphere containing delicate filaments, suspended within a sculptural brass ring. Towering archive shelves on left with catalog drawers. Three brass pressure gauges on right beside a sealed arched airlock. A walnut console crosses foreground between 65% and 82% height, with a beautiful wax-cylinder phonograph on the left, family-photo frame and clear leather surface for collectibles. Soft cyan illumination from ocean windows, amber lamps, restrained glowing dust, astonishing fine architectural detail.",
+      "jobId": "2f9b3ee7-c490-466a-a87a-572cfb03bd7e",
+      "source": "src/assets/4k/vault.png",
+      "runtime": "src/assets/4k/vault.webp",
+      "width": 2160,
+      "height": 3840,
+      "sourceSha256": "aa022a11a77e22a753cf3fd5968dec32df876642bd7cabc8b9e6cf929e7a0bec",
+      "encoding": "WebP quality 93; identical pixel dimensions, no resizing",
+      "runtimeBytes": 2346872
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import {PORTRAITS} from './portrait-scenes.js';
 import {renderScale} from './render-scale.js';
 import observatory from './assets/observatory.jpg';
 import workshop from './assets/workshop.jpg';
@@ -20,17 +21,19 @@ export function createCinematicWorld(container,{chapter}){
   const stage=container.querySelector('.scene-stage'),img=container.querySelector('img'),canvas=container.querySelector('canvas'),ctx=canvas.getContext('2d');
   const particles=Array.from({length:30},(_,i)=>({x:(Math.sin(i*72.6)*.5+.5),y:(Math.cos(i*39.1)*.5+.5),size:i%3*.45+.6}));
   const scene=()=>SCENES[chapter][room];
+  const portrait=()=>width<height;
+  const plate=()=>portrait()?PORTRAITS[chapter][room]:scene();
   function layout(){
-    const scale=Math.max(width/1672,height/941),w=1672*scale,h=941*scale;
+    const iw=portrait()?2160:1672,ih=portrait()?3840:941;const scale=Math.max(width/iw,height/ih),w=iw*scale,h=ih*scale;
     stage.style.width=`${w}px`;stage.style.height=`${h}px`;
     const shift=Math.max(0,(w-width)/2),left=(width-w)/2+pan*shift;
-    stage.style.left=`${left}px`;stage.style.top=`${(height-h)/2}px`;
-    if(focus){const spot=scene().spots.find(x=>x[0]===focus);if(spot){stage.style.transformOrigin=`${spot[1]*100}% ${spot[2]*100}%`;stage.style.transform='scale(1.32)';}}
+    const top=(height-h)/2-(portrait()?Math.max(0,Math.min(110,225-height*.18)):0);stage.style.left=`${left}px`;stage.style.top=`${top}px`;
+    if(focus){const spot=plate().spots.find(x=>x[0]===focus);if(spot){stage.style.transformOrigin=`${spot[1]*100}% ${spot[2]*100}%`;stage.style.transform='scale(1.32)';}}
     else{stage.style.transform='scale(1)';stage.style.transformOrigin='50% 50%';}
-    return {w,h,left,top:(height-h)/2};
+    return {w,h,left,top};
   }
-  function loadScene(){img.src=scene().image;container.dataset.room=room;container.dataset.worldChapter=chapter;layout();}
-  function resize(){width=container.clientWidth;height=container.clientHeight;const ratio=renderScale(width,height,devicePixelRatio,low);canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;ctx?.setTransform(ratio,0,0,ratio,0,0);layout();}
+  function loadScene(){if(img.getAttribute('src')!==plate().image)img.src=plate().image;container.dataset.room=room;container.dataset.worldChapter=chapter;layout();}
+  function resize(){width=container.clientWidth;height=container.clientHeight;if(img.getAttribute('src')!==plate().image)img.src=plate().image;const ratio=renderScale(width,height,devicePixelRatio,low);canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;ctx?.setTransform(ratio,0,0,ratio,0,0);layout();}
   function draw(now){
     if(disposed)return;frame=requestAnimationFrame(draw);
     if(document.hidden||now-then<40)return;then=now;
@@ -50,8 +53,8 @@ export function createCinematicWorld(container,{chapter}){
     setQuality(q){low=q==='low';container.classList.toggle('light-render',low);resize();},
     setMotion(v){reduced=v||matchMedia('(prefers-reduced-motion: reduce)').matches;container.classList.toggle('still-scene',reduced);},
     pulseNote(n){container.style.setProperty('--echo-hue',`${n*25}deg`);},
-    getHotspots(){const {w,h,left,top}=layout();return scene().spots.map(([id,x,y])=>({id,x:(left+x*w)/width,y:(top+y*h)/height,visible:!focus}));},
-    getDiagnostics(){return {renderer:'cinematic-2.5d',room,scene:scene().name,imageLoaded:img.complete&&img.naturalWidth>0,imageWidth:img.naturalWidth,frameWidth:canvas.width,frameHeight:canvas.height,pixelRatio:canvas.width/Math.max(width,1),particles:low||reduced?0:particles.length,pan,reducedMotion:reduced};},
+    getHotspots(){const {w,h,left,top}=layout();return plate().spots.map(([id,x,y])=>({id,x:(left+x*w)/width,y:(top+y*h)/height,visible:!focus}));},
+    getDiagnostics(){return {renderer:'cinematic-2.5d',room,scene:scene().name,imageLoaded:img.complete&&img.naturalWidth>0,imageWidth:img.naturalWidth,imageHeight:img.naturalHeight,portrait:portrait(),frameWidth:canvas.width,frameHeight:canvas.height,pixelRatio:canvas.width/Math.max(width,1),particles:low||reduced?0:particles.length,pan,reducedMotion:reduced};},
     resize,dispose(){disposed=true;cancelAnimationFrame(frame);observer.disconnect();container.removeEventListener('pointerdown',pointerdown);container.removeEventListener('pointermove',pointermove);container.removeEventListener('pointerup',pointerup);container.removeEventListener('pointercancel',pointerup);container.replaceChildren();},
   };
 }

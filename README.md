@@ -1,6 +1,6 @@
 # L’Archivio delle Maree
 
-Un’avventura enigmistica originale in italiano, con **due capitoli giocabili, quattro ambienti, diciotto scoperte principali e ventiquattro oggetti da cercare**.
+Un’avventura enigmistica originale in italiano, con **due capitoli giocabili, quattro ambienti, diciotto scoperte principali, ventiquattro oggetti da cercare e quattro deduzioni giocabili**.
 
 ## Gioca
 
@@ -8,7 +8,7 @@ Un’avventura enigmistica originale in italiano, con **due capitoli giocabili, 
 
 **Su iPhone:** apri il link in Safari, tocca Condividi → Aggiungi alla schermata Home e, se presente, attiva «Apri come app web». Avvia dall’icona **Le Maree** e tieni il telefono in verticale. I comandi rispettano fotocamera e barra Home. Nel menu, attendi «Pronto anche senza connessione» prima di giocare offline. Il primo caricamento richiede una connessione; il Mac può essere spento.
 
-Il gioco usa la densità nativa del display per testo, illustrazioni vettoriali e oggetti 3D. Il limite del rendering è un fotogramma 4K; verificati anche i formati verticali 1080×1920 e 2160×3840. I fondali prerenderizzati restano a 1672×941 pixel: il supporto a un display 4K non li trasforma in immagini 4K native. I progressi sono salvati sul singolo dispositivo/browser; non c’è sincronizzazione fra Mac e iPhone. La disponibilità della copia offline dipende dallo spazio conservato dal browser.
+Il gioco usa la densità nativa del display per testo, illustrazioni vettoriali e oggetti 3D. Il limite del rendering è un fotogramma 4K; verificati anche i formati verticali 1080×1920 e 2160×3840. La versione 5 aggiunge quattro fondali verticali nativi da **2160×3840 pixel**. Le immagini originali PNG sono conservate in `src/assets/4k/`; le copie WebP caricate dal gioco hanno le stesse dimensioni, senza ingrandimenti artificiali. In orizzontale restano le precedenti vedute da 1672×941. Il browser adatta le immagini alla risoluzione fisica del dispositivo. I progressi sono salvati sul singolo dispositivo/browser; non c’è sincronizzazione fra Mac e iPhone. La disponibilità della copia offline dipende dallo spazio conservato dal browser.
 
 Apri `dist/GIOCA.html` nel browser. Il gioco completo, i font, la grafica e i suoni sono inclusi: funziona senza connessione e senza installazione.
 
@@ -32,10 +32,11 @@ Il menu «Scegli un capitolo» permette di iniziare dal secondo capitolo, con un
 - Scegli **Usa nella stanza**, poi tocca il meccanismo giusto, anche dalla mappa. Una scelta sbagliata conserva l’oggetto. Le altre prove vengono annotate nel taccuino con i ricordi di Nora, Elia e Ada.
 - Clicca o tocca gli indicatori sugli oggetti. «Oggetti» mostra i nomi; «Mappa» raccoglie tutte le destinazioni accessibili.
 - Sui dispositivi stretti trascina la scena per esplorarne i lati. L’inquadratura si avvicina quando esamini un oggetto. La freccia sul lato destro cambia stanza quando il passaggio è sbloccato.
+- Nel **Taccuino**, dopo ogni ricerca completa, collega due prove per risolvere una deduzione. Le quattro piste approfondiscono Ada, Elia e il ritorno di Nora. Puoi sbagliare senza perdere oggetti. La mappa illustrata mostra la posizione corrente e i passaggi accessibili.
 - **T** apre il taccuino; **L** attiva la lente; **Esc** chiude i dettagli.
 - **Tab / Maiusc+Tab / Invio** per la tastiera. Nei controlli di volume usa le frecce.
-- **♪** attiva l’audio; inizialmente è spento. Il carillon include immagini e trascrizione, quindi l’udito non è necessario.
-- Il menu regola volume, qualità grafica e movimento decorativo. Il pulsante ⛶ apre lo schermo intero quando supportato.
+- Il pulsante con l’altoparlante attiva l’audio; inizialmente è spento. Il carillon include immagini e trascrizione, quindi l’udito non è necessario.
+- Il menu regola volume, qualità grafica e movimento decorativo. Il pulsante schermo intero apre lo schermo intero quando supportato.
 - Gli indizi sono progressivi, senza penalità. Non ci sono scadenze o stati di morte.
 
 I due capitoli conservano i propri progressi, inclusi oggetti trovati e astucci aperti nelle ricerche incomplete. I vecchi salvataggi vengono importati automaticamente: i meccanismi già superati conservano i propri utensili come montati. «Ricomincia questo capitolo» azzera soltanto il capitolo attivo, dopo conferma. Impostazioni e progressi dell’altro rimangono. Per giocare tutte le nuove ricerche di un capitolo già completato scegli «Ricomincia questo capitolo».
@@ -44,13 +45,13 @@ Salvataggi e preferenze sono locali al browser e all’indirizzo. `localhost`, `
 
 ## Realizzazione e verifiche
 
-Quattro scenari originali generati con imagegen, con pietra, noce e ottone invecchiato, luce marina e lampade d’epoca. La presentazione unisce **ambienti 2.5D e utensili realmente tridimensionali**: fondali prerenderizzati, oggetti originali disegnati in SVG, ingrandimenti, particelle, primi piani interattivi e ispezione Three.js dei quattro utensili ricomposti. Non è un ambiente 3D a movimento libero. Se WebGL non è disponibile, raccolta, combinazioni e uso continuano a funzionare. Audio originale sintetizzato. Nessun asset è stato estratto dal video o dai giochi di riferimento.
+Quattro nuove composizioni verticali generate con GPT Image 2.6 su Higgsfield, oltre alle precedenti vedute orizzontali create con imagegen, con pietra, noce e ottone invecchiato, luce marina e lampade d’epoca. La presentazione unisce **ambienti 2.5D e utensili realmente tridimensionali**: fondali prerenderizzati, oggetti originali disegnati in SVG, ingrandimenti, particelle, primi piani interattivi e ispezione Three.js dei quattro utensili ricomposti. Non è un ambiente 3D a movimento libero. Se WebGL non è disponibile, raccolta, combinazioni e uso continuano a funzionare. Audio originale sintetizzato. Nessun asset è stato estratto dal video o dai giochi di riferimento.
 
 La revisione riprende il ciclo di ricerca, investigazione e minigiochi descritto pubblicamente da Nordcurrent per *Murder by Choice*. L’analisi e la traduzione in meccaniche originali sono in `docs/ANALISI-MURDER-BY-CHOICE.md`; non si tratta di decompilazione del gioco commerciale.
 
 La modalità «Leggera» disattiva particelle e luce decorativa. La riduzione dei movimenti rispetta anche le preferenze di sistema. Il file autonomo contiene immagini, font e suoni.
 
-Sono disponibili 39 test logici, 14 prove browser in Chrome e 6 verifiche aggiuntive: i due capitoli completi con WebKit in emulazione iPhone, touch e spazi sicuri, formato verticale Full HD/4K e ripresa della ricerca offline dal sito. Sono prove automatizzate su Mac, non su un iPhone fisico. Le verifiche controllano il funzionamento, non promettono un numero di fotogrammi al secondo sui diversi telefoni.
+Sono disponibili 44 test logici, 16 prove browser in Chrome e 9 verifiche aggiuntive: i due capitoli completi con WebKit in emulazione iPhone, touch e spazi sicuri, formato verticale Full HD/4K e ripresa della ricerca offline dal sito. Sono prove automatizzate su Mac, non su un iPhone fisico. Le verifiche controllano il funzionamento, non promettono un numero di fotogrammi al secondo sui diversi telefoni.
 
 ```sh
 npm install
@@ -79,7 +80,12 @@ Il ramo principale contiene i sorgenti. GitHub Pages pubblica la radice del ramo
 - `src/search-scene.js` / `src/search.css`: ricerca interattiva, astucci, ingrandimento e indizi.
 - `src/object-art.js`: illustrazioni originali degli oggetti.
 - `src/item-viewer.js` / `src/item-viewer.css`: ispezione 3D, controlli e alternativa senza WebGL.
-- `src/cinematic.css`: interfaccia e primi piani.
+- `src/cinematic.css` / `src/premium.css`: interfaccia, primi piani e nuova direzione visiva.
+- `src/portrait-scenes.js`: fondali verticali e coordinate delle interazioni.
+- `src/atlas.js`: mappa illustrata dei quattro luoghi.
+- `src/deductions.js` / `src/deductions-ui.js`: quattro deduzioni e relativi pannelli.
+- `src/ui-icons.js`: icone vettoriali coordinate.
+- `docs/fondali-4k-provenienza.json`: prompt, identificativi, hash e dimensioni verificati dei nuovi asset.
 - `src/world.js` / `src/archive-world.js`: renderer precedenti conservati, non caricati dal gioco.
 - `src/main.js` / `src/chapter2-ui.js`: interfaccia e interazioni.
 - `src/audio.js`: suoni, volume e ambiente per capitolo.
@@ -91,4 +97,4 @@ Il ramo principale contiene i sorgenti. GitHub Pages pubblica la radice del ramo
 - `docs/ANALISI-MURDER-BY-CHOICE.md`: analisi dei giochi a oggetti nascosti e revisione 4.0.
 - `docs/DESIGN-CAPITOLO-2.md`: struttura e soluzioni del nuovo capitolo; contiene spoiler.
 
-Le licenze di Three.js, Cormorant Garamond e Manrope sono incluse in `dist/LICENZE.txt` e nel file autonomo.
+Le licenze di Three.js, Marcellus e Source Sans 3 sono incluse in `dist/LICENZE.txt` e nel file autonomo.

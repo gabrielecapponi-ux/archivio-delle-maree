@@ -24,7 +24,7 @@ html=html.replace(/<link[^>]+rel="manifest"[^>]*>/g,'');
 for(const match of [...html.matchAll(/<link[^>]+rel="(?:icon|apple-touch-icon)"[^>]+href="([^"]+)"[^>]*>/g)]){
   html=html.replace(match[0],match[0].replace(match[1],await embed(match[1])));
 }
-const licenses=await Promise.all(['three','@fontsource/cormorant-garamond','@fontsource/manrope'].map(async name=>`${name}\n${await readFile(resolve('node_modules',name,'LICENSE'),'utf8')}`));
+const licenses=await Promise.all(['three','@fontsource/marcellus','@fontsource/source-sans-3'].map(async name=>`${name}\n${await readFile(resolve('node_modules',name,'LICENSE'),'utf8')}`));
 const notice=licenses.join('\n\n────────────────────────────────────────\n\n');
 await writeFile(resolve(root,'LICENZE.txt'),notice);
 await writeFile(resolve(root,'GIOCA.html'),html+`\n<!--\nLicenze dei componenti inclusi:\n${notice.replace(/-->/g,'—>')}\n-->\n`);

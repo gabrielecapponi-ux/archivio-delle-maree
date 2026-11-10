@@ -1,0 +1,22 @@
+const paths={
+  search:'<circle cx="10.5" cy="10.5" r="6.3"/><path d="m15 15 5.5 5.5M10.5 7.4v6.2M7.4 10.5h6.2"/>',
+  lens:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 1v2M12 21v2M1 12h2M21 12h2"/>',
+  journal:'<path d="M5 3h12a2 2 0 0 1 2 2v16H6a3 3 0 0 1-3-3V5a2 2 0 0 1 2-2Zm1 0v14M3 18h16M10 7h5M10 11h5"/>',
+  map:'<path d="m2 5 6-2 8 2 6-2v16l-6 2-8-2-6 2Zm6-2v16m8-14v16M4.5 12l3.5-2 8 3 3-2"/>',
+  eye:'<path d="M2 12s3.7-7 10-7 10 7 10 7-3.7 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+  hint:'<path d="M8 17c0-3-3-4-3-8a7 7 0 0 1 14 0c0 4-3 5-3 8Zm0 3h8m-6 3h4M9 9a3 3 0 0 1 3-3"/>',
+  menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',
+  close:'<path d="m6 6 12 12M6 18 18 6"/>',
+  back:'<path d="m10 5-7 7 7 7M3 12h18"/>',
+  arrow:'<path d="m9 5 7 7-7 7"/>',
+  fullscreen:'<path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/>',
+  sound:'<path d="m3 9 5 0 5-5v16l-5-5H3Zm13-1a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>',
+  muted:'<path d="m3 9 5 0 5-5v16l-5-5H3Zm14 0 5 6m-5 0 5-6"/>',
+  check:'<path d="m5 12 4 4L20 5"/>',
+  lock:'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/>',
+  pin:'<path d="M19 10c0 5-7 12-7 12S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+  clue:'<circle cx="6" cy="6" r="3"/><circle cx="18" cy="7" r="3"/><circle cx="12" cy="19" r="3"/><path d="m8.7 6.2 6.3.6M7.3 8.7l3.3 7.6m6.1-6.6-3.4 6.6"/>',
+  waves:'<path d="M2 7q2.5-3 5 0t5 0 5 0 5 0M2 12q2.5-3 5 0t5 0 5 0 5 0M2 17q2.5-3 5 0t5 0 5 0 5 0"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',
+};
+export function uiIcon(name){return `<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]??paths.lens}</svg>`;}

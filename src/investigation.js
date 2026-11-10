@@ -1,4 +1,5 @@
 import {extendedAPI,canEnter} from './expansion.js';
+import {DEDUCTIONS,restoreDeductions,solveDeduction} from './deductions.js';
 
 const item=(hunt,kind,name,x,y,w,description,component=false,extra={})=>({
   id:`${hunt}-${kind}`,kind,name,x,y,w,description,component,...extra,
@@ -59,7 +60,7 @@ export const TOOL_DEFS={
 };
 
 export const huntFor=(chapter,room)=>HUNTS.find(h=>h.chapter===chapter&&h.room===room);
-export function newInvestigation(){return {version:1,found:[],opened:[],crafted:[],used:[]};}
+export function newInvestigation(){return {version:1,found:[],opened:[],crafted:[],used:[],deductions:[]};}
 export function huntComplete(state,huntId){
   const hunt=HUNTS.find(h=>h.id===huntId);
   return !!hunt&&hunt.items.every(item=>state.investigation?.found?.includes(item.id));
@@ -85,6 +86,7 @@ export function restoreInvestigation(chapter,raw,baseState){
     add(data.opened,hunt.cover.id);for(const item of hunt.items)add(data.found,item.id);
     add(data.crafted,hunt.reward);add(data.used,hunt.reward);
   }}
+  data.deductions=restoreDeductions(chapter,raw?.deductions,data.found).filter(id=>huntComplete({investigation:data},DEDUCTIONS.find(d=>d.id===id).hunt));
   return data;
 }
 
@@ -150,6 +152,13 @@ export function investigationAPI(chapter){
         if(result.success&&type==='letter')result.message='Lettera raccolta. La chiave è smontata: cerca i suoi pezzi e le altre tracce sullo scrittoio.';
         if(result.success&&type==='register')result.message='Registro trascritto e lamina raccolta. Cerca i pezzi della valvola nella galleria sommersa.';
         return result;
+      }
+      if(type==='i-deduce'){
+        const deduction=DEDUCTIONS.find(d=>d.id===payload?.id&&d.chapter===chapter);
+        if(!deduction||!huntComplete(s,deduction.hunt))return fail('Completa la ricerca dei sei oggetti prima di collegare le prove.');
+        const result=solveDeduction({...s,chapter},payload.id,payload.selected);
+        if(result.success){data.deductions??=[];data.deductions.push(deduction.id);}
+        return {state:s,...result};
       }
       if(type==='i-open'){
         const hunt=HUNTS.find(h=>h.cover.id===payload&&h.chapter===chapter);
